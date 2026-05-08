@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NewGen Pharmacy — Full SEO & Technical Audit Report</title>
+<style>
+  @import url('[https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap](https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap)');
+
+:root {
+  --bg: #05080f;
+  --surface: #0c1220;
+  --card: #111827;
+  --border: #1e2d45;
+  --accent: #00d4ff;
+  --accent2: #7c3aed;
+  --green: #22c55e;
+  --yellow: #f59e0b;
+  --red: #ef4444;
+  --orange: #f97316;
+  --text: #e2e8f0;
+  --muted: #64748b;
+  --mono: 'DM Mono', monospace;
+  --sans: 'DM Sans', sans-serif;
+  --display: 'Syne', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  padding: 60px 40px 50px;
+  background: linear-gradient(135deg, #05080f 0%, #0a1628 50%, #05080f 100%);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; left: -80px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(0,212,255,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; right: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(124,58,237,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hero-label::before {
+  content: '';
+  width: 20px; height: 1px;
+  background: var(--accent);
+}
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-url {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+.hero-meta span { display: flex; align-items: center; gap: 5px; }
+.hero-meta b { color: var(--text); }
+
+/* SCORE BANNER */
+.score-banner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.score-item {
+  background: var(--card);
+  padding: 22px 20px;
+  text-align: center;
+  position: relative;
+}
+.score-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 0; height: 3px;
+  background: var(--c, var(--green));
+  transition: width 0.6s ease;
+}
+.score-item:hover::after { width: 80%; }
+.score-num {
+  font-family: var(--display);
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--c, var(--green));
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.score-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+/* LAYOUT */
+.container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+
+/* SECTION */
+.section { margin-bottom: 48px; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.section-icon {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.section-title {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+}
+.section-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* CARDS */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--c, var(--border));
+}
+.card-title {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.card-value {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--c, var(--text));
+  margin-bottom: 4px;
+}
+.card-desc {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ISSUE LIST */
+.issue-list { display: flex; flex-direction: column; gap: 8px; }
+.issue {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--c, var(--muted));
+}
+.issue-badge {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.05);
+  color: var(--c, var(--muted));
+  border: 1px solid var(--c, var(--border));
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.issue-content { flex: 1; }
+.issue-title {
+  font-weight: 500;
+  color: var(--text);
+  font-size: 13px;
+  margin-bottom: 3px;
+}
+.issue-detail {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.issue-fix {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--green);
+  margin-top: 5px;
+}
+
+/* TABLE & RESPONSIVE WRAPPER */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  min-width: 600px; /* Ensures table doesn't squish too much on mobile */
+}
+.data-table th {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-align: left;
+  padding: 10px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.data-table td {
+  padding: 11px 14px;
+  border-bottom: 1px solid #151f31;
+  vertical-align: top;
+  line-height: 1.5;
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+/* PILLS */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-weight: 500;
+}
+.pill-green { background: rgba(34,197,94,0.1); color: var(--green); border: 1px solid rgba(34,197,94,0.2); }
+.pill-red { background: rgba(239,68,68,0.1); color: var(--red); border: 1px solid rgba(239,68,68,0.2); }
+.pill-yellow { background: rgba(245,158,11,0.1); color: var(--yellow); border: 1px solid rgba(245,158,11,0.2); }
+.pill-blue { background: rgba(0,212,255,0.1); color: var(--accent); border: 1px solid rgba(0,212,255,0.2); }
+.pill-orange { background: rgba(249,115,22,0.1); color: var(--orange); border: 1px solid rgba(249,115,22,0.2); }
+
+/* GAUGE */
+.gauge-wrap { display: flex; align-items: center; gap: 12px; }
+.gauge-bar {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 100px;
+  overflow: hidden;
+}
+.gauge-fill {
+  height: 100%;
+  border-radius: 100px;
+  background: var(--c, var(--green));
+  transition: width 1s ease;
+}
+.gauge-val {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--c, var(--green));
+  width: 36px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* CWV */
+.cwv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+.cwv-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 18px;
+  text-align: center;
+}
+.cwv-ring {
+  width: 70px; height: 70px;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 800;
+  background: conic-gradient(var(--c, var(--green)) var(--pct, 0%), #1e2d45 0%);
+  position: relative;
+}
+.cwv-ring::before {
+  content: '';
+  position: absolute;
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  background: var(--card);
+}
+.cwv-ring span { position: relative; z-index: 1; color: var(--c, var(--green)); }
+.cwv-name {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.cwv-metric {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+.cwv-status {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--c, var(--green));
+}
+
+/* PRIORITY MATRIX */
+.matrix {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.matrix-cell {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+}
+.matrix-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--c, var(--muted));
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.matrix-item {
+  font-size: 12px;
+  color: var(--text);
+  padding: 5px 0;
+  border-bottom: 1px solid #151f31;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.matrix-item:last-child { border-bottom: none; }
+.matrix-item::before { content: '→'; color: var(--c, var(--muted)); flex-shrink: 0; font-family: var(--mono); font-size: 11px; margin-top: 1px; }
+
+/* CODE */
+.code-block {
+  background: #07101e;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: #7dd3fc;
+  overflow-x: auto;
+  margin-top: 8px;
+  line-height: 1.7;
+}
+.code-block .comment { color: #475569; }
+.code-block .tag { color: #f472b6; }
+.code-block .attr { color: #fbbf24; }
+.code-block .val { color: #86efac; }
+
+/* DIVIDER */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 40px 0;
+}
+
+/* FOOTER */
+.footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 30px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-brand {
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.footer-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.section { animation: fadeUp 0.5s ease forwards; }
+
+/* MOBILE RESPONSIVE TWEAKS */
+@media (max-width: 768px) {
+  .hero { padding: 40px 20px 30px; }
+  .grid-2, .grid-3, .matrix { grid-template-columns: 1fr; }
+  .container { padding: 30px 16px; }
+  .footer { 
+    flex-direction: column; 
+    text-align: center; 
+    padding: 24px 20px; 
+  }
+  .footer-meta { text-align: center !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">Full Audit Report · May 2026</div>
+  <h1>NewGen Pharmacy<br>SEO & Technical Analysis</h1>
+  <div class="hero-url">[https://newgenpharmacy.co.uk/](https://newgenpharmacy.co.uk/)</div>
+  <div class="hero-meta">
+    <span>🏥 <b>Online Pharmacy · Healthcare · YMYL</b></span>
+    <span>🇬🇧 <b>London, United Kingdom</b></span>
+    <span>⚙️ <b>WordPress + Elementor 4.0.7</b></span>
+    <span>📅 <b>Report Date: 09 May 2026</b></span>
+    <span>🔒 <b>GPhC Reg: 9012028</b></span>
+  </div>
+</div>
+
+<!-- SCORE BANNER -->
+<div class="score-banner">
+  <div class="score-item" style="--c: var(--yellow)">
+    <div class="score-num" style="--c: var(--yellow)">61</div>
+    <div class="score-label">Overall SEO Score</div>
+  </div>
+  <div class="score-item" style="--c: var(--red)">
+    <div class="score-num" style="--c: var(--red)">~55</div>
+    <div class="score-label">Performance (Est.)</div>
+  </div>
+  <div class="score-item" style="--c: var(--yellow)">
+    <div class="score-num" style="--c: var(--yellow)">72</div>
+    <div class="score-label">On-Page SEO</div>
+  </div>
+  <div class="score-item" style="--c: var(--green)">
+    <div class="score-num" style="--c: var(--green)">88</div>
+    <div class="score-label">E-E-A-T Signals</div>
+  </div>
+  <div class="score-item" style="--c: var(--yellow)">
+    <div class="score-num" style="--c: var(--yellow)">65</div>
+    <div class="score-label">Technical SEO</div>
+  </div>
+  <div class="score-item" style="--c: var(--green)">
+    <div class="score-num" style="--c: var(--green)">90</div>
+    <div class="score-label">Trust & Credibility</div>
+  </div>
+  <div class="score-item" style="--c: var(--red)">
+    <div class="score-num" style="--c: var(--red)">48</div>
+    <div class="score-label">Page Speed (Est.)</div>
+  </div>
+  <div class="score-item" style="--c: var(--yellow)">
+    <div class="score-num" style="--c: var(--yellow)">70</div>
+    <div class="score-label">Mobile Friendliness</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 1. META & ON-PAGE SEO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(0,212,255,0.1)">🏷️</div>
+      <div>
+        <div class="section-title">1. Meta Tags & On-Page SEO</div>
+        <div class="section-num">Title · Description · OG · Twitter Cards · Robots</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:12px;">
+      <div class="card-title">Page Title</div>
+      <div style="font-family:var(--mono);font-size:13px;color:#7dd3fc;margin-bottom:6px;">"NewGen Pharmacy | Online Pharmacy &amp; NHS Prescriptions"</div>
+      <div class="gauge-wrap" style="margin-bottom:8px;">
+        <div class="gauge-bar"><div class="gauge-fill" style="--c:var(--yellow);width:72%"></div></div>
+        <div class="gauge-val" style="--c:var(--yellow)">72%</div>
+      </div>
+      <div style="font-size:12px;color:var(--muted)">Character count: ~52 chars (ideal: 50–60). ✅ Within range. However it lacks a location modifier like "London" or a differentiator keyword (e.g., "GPhC Registered"). Competitor searches heavily feature location + GPhC.</div>
+    </div>
+
+    <div class="card" style="margin-bottom:12px;">
+      <div class="card-title">Meta Description</div>
+      <div style="font-family:var(--mono);font-size:12px;color:#7dd3fc;margin-bottom:6px;line-height:1.5;">"GPhC-registered online pharmacy offering NHS prescriptions, weight loss treatment, and private healthcare services. Free UK delivery. Order online 24/7 or call 020 4599 5647."</div>
+      <div class="gauge-wrap" style="margin-bottom:8px;">
+        <div class="gauge-bar"><div class="gauge-fill" style="--c:var(--green);width:85%"></div></div>
+        <div class="gauge-val" style="--c:var(--green)">85%</div>
+      </div>
+      <div style="font-size:12px;color:var(--muted)">✅ Excellent. 162 chars. Contains CTA, phone number, core services, trust signal (GPhC). Well-written and persuasive. Could add "London" for local SEO edge.</div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card" style="--c:var(--green)">
+        <div class="card-title">Canonical Tag</div>
+        <div class="card-value" style="font-size:14px;color:var(--green)">✅ Present</div>
+        <div class="card-desc">Self-referencing canonical set correctly to [https://newgenpharmacy.co.uk/](https://newgenpharmacy.co.uk/)</div>
+      </div>
+      <div class="card" style="--c:var(--green)">
+        <div class="card-title">Robots Meta</div>
+        <div class="card-value" style="font-size:14px;color:var(--green)">✅ Indexable</div>
+        <div class="card-desc">index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1</div>
+      </div>
+      <div class="card" style="--c:var(--green)">
+        <div class="card-title">Open Graph</div>
+        <div class="card-value" style="font-size:14px;color:var(--green)">✅ Complete</div>
+        <div class="card-desc">og:title, og:description, og:image (477×460), og:type, og:url all set</div>
+      </div>
+      <div class="card" style="--c:var(--green)">
+        <div class="card-title">Twitter Card</div>
+        <div class="card-value" style="font-size:14px;color:var(--green)">✅ Present</div>
+        <div class="card-desc">summary_large_image. @NewGen_Pharmacy linked. Good social shareability.</div>
+      </div>
+      <div class="card" style="--c:var(--yellow)">
+        <div class="card-title">OG Image Size</div>
+        <div class="card-value" style="font-size:14px;color:var(--yellow)">⚠️ 477×460</div>
+        <div class="card-desc">Not ideal. Recommended is 1200×630px for proper social card display.</div>
+      </div>
+      <div class="card" style="--c:var(--green)">
+        <div class="card-title">Viewport</div>
+        <div class="card-value" style="font-size:14px;color:var(--green)">✅ Set</div>
+        <div class="card-desc">width=device-width, initial-scale=1. Correct for mobile-first indexing.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:12px" class="card">
+      <div class="card-title">Heading Structure Analysis</div>
+      <div class="table-responsive">
+        <table class="data-table" style="margin-top:8px;">
+          <thead>
+            <tr><th>Tag</th><th>Count</th><th>Status</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="pill pill-blue">H1</span></td><td>1</td><td><span class="pill pill-green">✅ Good</span></td><td>"Jade lost 5 stone" — ⚠️ This is the ONLY H1 and it's a testimonial, NOT a primary keyword. Critical issue.</td></tr>
+            <tr><td><span class="pill pill-blue">H2</span></td><td>20+</td><td><span class="pill pill-yellow">⚠️ Overused</span></td><td>Excessive H2 use. Many non-semantic headings used for styling (e.g. "1", "2", "3" steps).</td></tr>
+            <tr><td><span class="pill pill-blue">H3</span></td><td>8+</td><td><span class="pill pill-yellow">⚠️ Mixed</span></td><td>Blog titles correctly use H3. Some treatment names use H3 appropriately.</td></tr>
+            <tr><td><span class="pill pill-blue">H4–H6</span></td><td>Several</td><td><span class="pill pill-yellow">⚠️ Inconsistent</span></td><td>H6 used for doctor name and qualifications — semantically incorrect.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top:10px;padding:10px;background:#0a1628;border-radius:6px;font-size:12px;color:var(--red)">
+        🚨 <strong>Critical:</strong> The page's only H1 is "Jade lost 5 stone" (a testimonial). The main hero headline "Effective, Clinically-Proven Weight Loss Treatments" is NOT an H1. This is a significant on-page SEO mistake for a YMYL site. Fix immediately.
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 2. CORE WEB VITALS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(124,58,237,0.15)">⚡</div>
+      <div>
+        <div class="section-title">2. Core Web Vitals & Performance</div>
+        <div class="section-num">LCP · FID/INP · CLS · FCP · TTFB · Speed Index</div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:12px;padding:12px 16px;background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.2);border-radius:8px;font-size:12px;color:var(--yellow)">
+      ⚠️ Estimated scores based on site architecture analysis. Site uses Elementor (heavy JS/CSS), multiple 3rd-party scripts (GTM, Facebook Pixel x2, TikTok), large image assets, and no visible CDN headers. Real CrUX data should be verified via PageSpeed Insights.
+    </div>
+
+    <div class="cwv-grid">
+      <div class="cwv-card">
+        <div class="cwv-ring" style="--c:var(--red);--pct:25%"><span>~4.8s</span></div>
+        <div class="cwv-name">LCP</div>
+        <div class="cwv-metric">Largest Contentful Paint</div>
+        <div class="cwv-status" style="color:var(--red)">POOR (&gt;4s)</div>
+        <div class="card-desc" style="font-size:11px;margin-top:6px">Hero image (webp) + Elementor CSS loading time. Target: &lt;2.5s</div>
+      </div>
+      <div class="cwv-card">
+        <div class="cwv-ring" style="--c:var(--yellow);--pct:50%"><span>~220ms</span></div>
+        <div class="cwv-name">INP</div>
+        <div class="cwv-metric">Interaction to Next Paint</div>
+        <div class="cwv-status" style="color:var(--yellow)">NEEDS WORK (200ms)</div>
+        <div class="card-desc" style="font-size:11px;margin-top:6px">JS-heavy Elementor + GTM delays interactions. Target: &lt;200ms</div>
+      </div>
+      <div class="cwv-card">
+        <div class="cwv-ring" style="--c:var(--yellow);--pct:60%"><span>~0.15</span></div>
+        <div class="cwv-name">CLS</div>
+        <div class="cwv-metric">Cumulative Layout Shift</div>
+        <div class="cwv-status" style="color:var(--yellow)">NEEDS WORK (&gt;0.1)</div>
+        <div class="card-desc" style="font-size:11px;margin-top:6px">Images without explicit width/height, late-loading fonts. Target: &lt;0.1</div>
+      </div>
+      <div class="cwv-card">
+        <div class="cwv-ring" style="--c:var(--red);--pct:20%"><span>~2.8s</span></div>
+        <div class="cwv-name">FCP</div>
+        <div class="cwv-metric">First Contentful Paint</div>
+        <div class="cwv-status" style="color:var(--red)">POOR (&gt;1.8s)</div>
+        <div class="card-desc" style="font-size:11px;margin-top:6px">Render-blocking resources delay initial render. Target: &lt;1.8s</div>
+      </div>
+      <div class="cwv-card">
+        <div class="cwv-ring" style="--c:var(--yellow);--pct:55%"><span>~800ms</span></div>
+        <div class="cwv-name">TTFB</div>
+        <div class="cwv-metric">Time To First Byte</div>
+        <div class="cwv-status" style="color:var(--yellow)">MODERATE</div>
+        <div class="card-desc" style="font-size:11px;margin-top:6px">WordPress server response. Target: &lt;600ms. Consider caching/CDN.</div>
+      </div>
+      <div class="cwv-card">
+        <div class="cwv-ring" style="--c:var(--red);--pct:30%"><span>~5.2s</span></div>
+        <div class="cwv-name">Speed Index</div>
+        <div class="cwv-metric">Speed Index</div>
+        <div class="cwv-status" style="color:var(--red)">POOR</div>
+        <div class="card-desc" style="font-size:11px;margin-top:6px">Page content loads slowly. Multiple sliders + carousels compound issue.</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:12px">
+      <div class="card-title">Performance Killers Identified</div>
+      <div class="issue-list" style="margin-top:10px">
+        <div class="issue" style="--c:var(--red)">
+          <span class="issue-badge" style="--c:var(--red)">Critical</span>
+          <div class="issue-content">
+            <div class="issue-title">2× Facebook Pixel Scripts</div>
+            <div class="issue-detail">Two separate FB Pixel IDs (1104835934864266 & 921008817334240) loaded. Doubles tracking payload, increases JS execution time.</div>
+            <div class="issue-fix">→ Fix: Consolidate into one pixel via Events Manager or use GTM to fire one.</div>
+          </div>
+        </div>
+        <div class="issue" style="--c:var(--red)">
+          <span class="issue-badge" style="--c:var(--red)">Critical</span>
+          <div class="issue-content">
+            <div class="issue-title">Elementor 4.0.7 — Unoptimised CSS/JS</div>
+            <div class="issue-detail">Elementor generates inline styles and loads global CSS for every widget. With additional_custom_breakpoints enabled, CSS output multiplies significantly.</div>
+            <div class="issue-fix">→ Fix: Enable Elementor's "Improved CSS Loading" + "Optimized DOM". Use a caching plugin (WP Rocket/LiteSpeed). Minify/combine Elementor CSS.</div>
+          </div>
+        </div>
+        <div class="issue" style="--c:var(--orange)">
+          <span class="issue-badge" style="--c:var(--orange)">High</span>
+          <div class="issue-content">
+            <div class="issue-title">Google Tag Manager (GTM-PQ97GVJP) Blocking</div>
+            <div class="issue-detail">GTM loaded in &lt;head&gt; without async optimisation. All tags inside fire synchronously affecting FCP.</div>
+            <div class="issue-fix">→ Fix: Audit GTM tags, add async loading, defer non-essential tags. Use Partytown for 3rd-party isolation.</div>
+          </div>
+        </div>
+        <div class="issue" style="--c:var(--orange)">
+          <span class="issue-badge" style="--c:var(--orange)">High</span>
+          <div class="issue-content">
+            <div class="issue-title">Mixed Image Formats (webp, avif, png, jpg)</div>
+            <div class="issue-detail">Good use of .webp and .avif in some areas, but many images still use .png and .jpg. No evidence of lazy loading attribute on all images.</div>
+            <div class="issue-fix">→ Fix: Convert all images to WebP/AVIF. Add loading="lazy" to all below-fold images. Add explicit width/height to prevent CLS.</div>
+          </div>
+        </div>
+        <div class="issue" style="--c:var(--yellow)">
+          <span class="issue-badge" style="--c:var(--yellow)">Medium</span>
+          <div class="issue-content">
+            <div class="issue-title">Google Fonts Loaded via CSS @import</div>
+            <div class="issue-detail">Font display swap is enabled (good), but fonts are loaded via external CDN adding DNS lookup and connection overhead to render path.</div>
+            <div class="issue-fix">→ Fix: Self-host Google Fonts. Preload critical font files with &lt;link rel="preload"&gt;.</div>
+          </div>
+        </div>
+        <div class="issue" style="--c:var(--yellow)">
+          <span class="issue-badge" style="--c:var(--yellow)">Medium</span>
+          <div class="issue-content">
+            <div class="issue-title">No Evidence of CDN</div>
+            <div class="issue-detail">Images served directly from newgenpharmacy.co.uk origin. No Cloudflare, Fastly or similar CDN detected. London-based users OK but wider UK users suffer.</div>
+            <div class="issue-fix">→ Fix: Enable Cloudflare (free tier) or CloudFront. This alone can improve TTFB by 200–400ms.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 3. TECHNICAL SEO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(34,197,94,0.1)">⚙️</div>
+      <div>
+        <div class="section-title">3. Technical SEO</div>
+        <div class="section-num">HTTPS · Sitemap · Schema · Crawlability · URL Structure · Redirects</div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:12px">
+      <div class="card" style="--c:var(--green)">
+        <div class="card-title">HTTPS / SSL</div>
+        <div class="card-value" style="font-size:16px">✅ Secure</div>
+        <div class="card-desc">Site properly serves HTTPS. Canonical also uses HTTPS. No mixed content detected in page source.</div>
+      </div>
+      <div class="card" style="--c:var(--green)">
+        <div class="card-title">Mobile Viewport</div>
+        <div class="card-value" style="font-size:16px">✅ Set</div>
+        <div class="card-desc">Responsive design via Elementor. Mobile-first indexing compatible. width=device-width, initial-scale=1.</div>
+      </div>
+      <div class="card" style="--c:var(--yellow)">
+        <div class="card-title">XML Sitemap</div>
+        <div class="card-value" style="font-size:16px">⚠️ Unverified</div>
+        <div class="card-desc">WordPress typically auto-generates at /sitemap.xml or /sitemap_index.xml. Should be submitted to Google Search Console.</div>
+      </div>
+      <div class="card" style="--c:var(--yellow)">
+        <div class="card-title">Robots.txt</div>
+        <div class="card-value" style="font-size:16px">⚠️ Unverified</div>
+        <div class="card-desc">Should exist at /robots.txt. Must not block CSS/JS files needed for rendering. Yoast SEO typically manages this.</div>
+      </div>
+      <div class="card" style="--c:var(--green)">
+        <div class="card-title">URL Structure</div>
+        <div class="card-value" style="font-size:16px">✅ Clean</div>
+        <div class="card-desc">URLs use lowercase, hyphens, descriptive slugs (e.g., /weight-loss/, /erectile-dysfunction-start-your-consultation/). Good keyword targeting.</div>
+      </div>
+      <div class="card" style="--c:var(--yellow)">
+        <div class="card-title">URL Depth</div>
+        <div class="card-value" style="font-size:16px">⚠️ Long Slugs</div>
+        <div class="card-desc">Some URLs very long: "/erectile-dysfunction-start-your-consultation/" (48 chars). Could be trimmed to "/erectile-dysfunction/".</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:12px">
+      <div class="card-title">Schema Markup / Structured Data</div>
+      <div class="issue-list" style="margin-top:8px">
+        <div class="issue" style="--c:var(--red)">
+          <span class="issue-badge" style="--c:var(--red)">Missing</span>
+          <div class="issue-content">
+            <div class="issue-title">Pharmacy / LocalBusiness Schema</div>
+            <div class="issue-detail">No LocalBusiness or Pharmacy schema detected. This is critical for a GPhC-registered pharmacy. Google uses this for Knowledge Panel and local search.</div>
+            <div class="issue-fix">→ Add: Organization + LocalBusiness schema with name, address, phone, openingHours, geo coordinates, GPhC registration.</div>
+          </div>
+        </div>
+        <div class="issue" style="--c:var(--red)">
+          <span class="issue-badge" style="--c:var(--red)">Missing</span>
+          <div class="issue-content">
+            <div class="issue-title">MedicalOrganization Schema</div>
+            <div class="issue-detail">As a healthcare provider, MedicalOrganization schema with medicalSpecialty would significantly boost E-E-A-T signals and rich results eligibility.</div>
+            <div class="issue-fix">→ Add: MedicalOrganization schema including medical professionals, GPhC reg number, legal name.</div>
+          </div>
+        </div>
+        <div class="issue" style="--c:var(--red)">
+          <span class="issue-badge" style="--c:var(--red)">Missing</span>
+          <div class="issue-content">
+            <div class="issue-title">Review / AggregateRating Schema</div>
+            <div class="issue-detail">Site displays testimonials and claims "Rated Excellent on Google & TrustPilot" but zero schema markup exists. Missing star ratings in SERPs.</div>
+            <div class="issue-fix">→ Add: AggregateRating schema. Connect real TrustPilot/Google reviews via API or plugin.</div>
+          </div>
+        </div>
+        <div class="issue" style="--c:var(--red)">
+          <span class="issue-badge" style="--c:var(--red)">Missing</span>
+          <div class="issue-content">
+            <div class="issue-title">Person / Doctor Schema for Medical Staff</div>
+            <div class="issue-detail">Dr. Naeem Aslam (GMC 6121335) and Nadia Zolfaghary (GPhC 2081303) are named. No Person or MedicalProfessional schema exists.</div>
+            <div class="issue-fix">→ Add: Person schema with name, jobTitle, url, sameAs (GMC/GPhC profile URLs).</div>
+          </div>
+        </div>
+        <div class="issue" style="--c:var(--orange)">
+          <span class="issue-badge" style="--c:var(--orange)">Missing</span>
+          <div class="issue-content">
+            <div class="issue-title">FAQPage Schema</div>
+            <div class="issue-detail">Multiple pages appear to have FAQ-style content but no FAQPage schema to capture SERP accordion rich results.</div>
+            <div class="issue-fix">→ Add FAQPage schema on treatment pages and blog posts where Q&A content exists.</div>
+          </div>
+        </div>
+        <div class="issue" style="--c:var(--orange)">
+          <span class="issue-badge" style="--c:var(--orange)">Missing</span>
+          <div class="issue-content">
+            <div class="issue-title">BreadcrumbList Schema</div>
+            <div class="issue-detail">No breadcrumb schema detected. Breadcrumbs in SERPs improve CTR and site navigation signals.</div>
+            <div class="issue-fix">→ Add BreadcrumbList schema. Yoast SEO can auto-generate this if enabled.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Recommended Schema JSON-LD (Example)</div>
+      <div class="code-block">
+<span class="tag">&lt;script</span> <span class="attr">type</span>=<span class="val">"application/ld+json"</span><span class="tag">&gt;</span>
+{
+  "@context": "[https://schema.org](https://schema.org)",
+  "@type": ["Pharmacy", "LocalBusiness", "MedicalOrganization"],
+  "name": "NewGen Pharmacy",
+  "legalName": "New International Medical Ltd",
+  "url": "[https://newgenpharmacy.co.uk/](https://newgenpharmacy.co.uk/)",
+  "telephone": "+442045995647",
+  "email": "info@newgenpharmacy.co.uk",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Unit 4, 245 High Street",
+    "addressLocality": "Stratford",
+    "postalCode": "E15 2LS",
+    "addressCountry": "GB"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 51.541, "longitude": -0.003 },
+  "openingHoursSpecification": [...],
+  "identifier": { "@type": "PropertyValue", "name": "GPhC", "value": "9012028" },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "..." }
+}
+<span class="tag">&lt;/script&gt;</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 4. E-E-A-T ANALYSIS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(0,212,255,0.1)">🏆</div>
+      <div>
+        <div class="section-title">4. E-E-A-T Analysis (YMYL Site)</div>
+        <div class="section-num">Experience · Expertise · Authoritativeness · Trustworthiness</div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:12px;padding:12px 16px;background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2);border-radius:8px;font-size:12px;color:#fca5a5">
+      🚨 <strong>YMYL (Your Money Your Life) Category:</strong> Pharmacy/healthcare sites face Google's highest scrutiny. E-E-A-T is not optional — it's the primary ranking factor. Any weakness here can catastrophically impact rankings.
+    </div>
+
+    <div class="grid-2" style="margin-bottom:12px">
+      <div class="card" style="--c:var(--green)">
+        <div class="card-title">✅ E-E-A-T Strengths</div>
+        <div class="issue-list" style="margin-top:8px">
+          <div style="font-size:12px;padding:6px 0;border-bottom:1px solid #151f31;color:var(--text)">✅ GPhC Registration number prominently displayed (9012028)</div>
+          <div style="font-size:12px;padding:6px 0;border-bottom:1px solid #151f31;color:var(--text)">✅ Named Superintendent Pharmacist with GPhC reg link</div>
+          <div style="font-size:12px;padding:6px 0;border-bottom:1px solid #151f31;color:var(--text)">✅ Named Medical Doctor with GMC number (6121335) + verification link</div>
+          <div style="font-size:12px;padding:6px 0;border-bottom:1px solid #151f31;color:var(--text)">✅ GPhC Inspection Report linked publicly</div>
+          <div style="font-size:12px;padding:6px 0;border-bottom:1px solid #151f31;color:var(--text)">✅ NHS Partner — displays NHS logo and links</div>
+          <div style="font-size:12px;padding:6px 0;border-bottom:1px solid #151f31;color:var(--text)">✅ Physical address: 245 High Street, Stratford, E15 2LS</div>
+          <div style="font-size:12px;padding:6px 0;border-bottom:1px solid #151f31;color:var(--text)">✅ Company registration (No. 07980522) and VAT number displayed</div>
+          <div style="font-size:12px;padding:6px 0;border-bottom:1px solid #151f31;color:var(--text)">✅ Active blog with medically relevant content</div>
+          <div style="font-size:12px;padding:6px 0;color:var(--text)">✅ Patient testimonials with before/after evidence</div>
+        </div>
+      </div>
+      <div class="card" style="--c:var(--red)">
+        <div class="card-title">❌ E-E-A-T Weaknesses</div>
+        <div class="issue-list" style="margin-top:8px">
+          <div style="font-size:12px;padding:6px 0;border-bottom:1px solid #151f31;color:var(--text)">❌ Blog posts have NO author attribution displayed</div>
+          <div style="font-size:12px;padding:6px 0;border-bottom:1px solid #151f31;color:var(--text)">❌ No medical content review/approval process shown</div>
+          <div style="font-size:12px;padding:6px 0;border-bottom:1px solid #151f31;color:var(--text)">❌ No "Reviewed by [Doctor/Pharmacist]" labels on clinical content</div>
+          <div style="font-size:12px;padding:6px 0;border-bottom:1px solid #151f31;color:var(--text)">❌ "As Seen In" (BBC, Guardian, Forbes, Bloomberg) — no links or evidence</div>
+          <div style="font-size:12px;padding:6px 0;border-bottom:1px solid #151f31;color:var(--text)">❌ No standalone About Page SEO-optimised for brand queries</div>
+          <div style="font-size:12px;padding:6px 0;border-bottom:1px solid #151f31;color:var(--text)">❌ No Privacy Notice for clinical data (GDPR critical for pharmacy)</div>
+          <div style="font-size:12px;padding:6px 0;border-bottom:1px solid #151f31;color:var(--text)">❌ No ICO registration visible</div>
+          <div style="font-size:12px;padding:6px 0;border-bottom:1px solid #151f31;color:var(--text)">❌ TrustPilot/Google review widgets not embedded (only screenshots)</div>
+          <div style="font-size:12px;padding:6px 0;color:var(--text)">❌ No clinical references/citations in health content</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 5. CONTENT ANALYSIS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(249,115,22,0.1)">📝</div>
+      <div>
+        <div class="section-title">5. Content & Keyword Analysis</div>
+        <div class="section-num">Homepage Content · Blog · Keyword Targeting · Internal Linking</div>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="data-table" style="margin-bottom:12px;background:var(--card);border-radius:10px;overflow:hidden;border:1px solid var(--border)">
+        <thead>
+          <tr><th>Target Keyword</th><th>Page Targeting</th><th>Status</th><th>Recommendation</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>online pharmacy UK</td>
+            <td>Homepage</td>
+            <td><span class="pill pill-yellow">Partial</span></td>
+            <td>In meta desc only. Needs to be in H1 and first 100 words of page body.</td>
+          </tr>
+          <tr>
+            <td>NHS prescriptions online</td>
+            <td>Homepage</td>
+            <td><span class="pill pill-yellow">Partial</span></td>
+            <td>Present in meta. Needs dedicated section with H2 targeting this phrase.</td>
+          </tr>
+          <tr>
+            <td>weight loss injections UK</td>
+            <td>/weight-loss/</td>
+            <td><span class="pill pill-green">Good</span></td>
+            <td>Strong service page. Ensure GLP-1 keywords also targeted.</td>
+          </tr>
+          <tr>
+            <td>GPhC registered pharmacy London</td>
+            <td>Homepage</td>
+            <td><span class="pill pill-red">Missing</span></td>
+            <td>High-intent trust keyword. Not in title or H1. Critical gap.</td>
+          </tr>
+          <tr>
+            <td>erectile dysfunction treatment UK</td>
+            <td>/erectile-dysfunction-*/</td>
+            <td><span class="pill pill-yellow">Moderate</span></td>
+            <td>URL is keyword-rich but very long. Content needs clinical depth.</td>
+          </tr>
+          <tr>
+            <td>prescription delivery London</td>
+            <td>/prescription-delivery-service/</td>
+            <td><span class="pill pill-yellow">Partial</span></td>
+            <td>Page exists but local SEO signals (London borough names) missing.</td>
+          </tr>
+          <tr>
+            <td>online pharmacy Stratford</td>
+            <td>None</td>
+            <td><span class="pill pill-red">Missing</span></td>
+            <td>No local landing page. 245 High St, Stratford is the address — build local SEO page.</td>
+          </tr>
+          <tr>
+            <td>testosterone replacement therapy UK</td>
+            <td>/testosterone-replacement-therapy-*/</td>
+            <td><span class="pill pill-green">Good</span></td>
+            <td>Good page exists. Ensure it has FAQ schema and medical references.</td>
+          </tr>
+          <tr>
+            <td>hay fever treatment online</td>
+            <td>/hay-fever-treatments-*/</td>
+            <td><span class="pill pill-yellow">Moderate</span></td>
+            <td>Page present. Blog post on hay fever helps. Increase internal links.</td>
+          </tr>
+          <tr>
+            <td>care home pharmacy services</td>
+            <td>/care-home-pharmacy-services/</td>
+            <td><span class="pill pill-green">Good</span></td>
+            <td>Low competition niche. Good differentiation. Expand with case studies.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Blog Content Assessment</div>
+      <div style="margin-top:8px">
+        <div class="issue-list">
+          <div class="issue" style="--c:var(--yellow)">
+            <span class="issue-badge" style="--c:var(--yellow)">Issue</span>
+            <div class="issue-content">
+              <div class="issue-title">No Author Bylines on Blog Posts</div>
+              <div class="issue-detail">Blog posts show date and category but no author name. For YMYL health content, Google requires clear authorship from qualified professionals.</div>
+              <div class="issue-fix">→ Add: Doctor/Pharmacist author boxes with credentials, photo, and links to their profile pages.</div>
+            </div>
+          </div>
+          <div class="issue" style="--c:var(--green)">
+            <span class="issue-badge" style="--c:var(--green)">Good</span>
+            <div class="issue-content">
+              <div class="issue-title">Relevant, Timely Blog Topics</div>
+              <div class="issue-detail">Topics like "GLP-1 Side Effects", "Hay Fever Treatments", "UTI Treatment by Pharmacist", "Quit Smoking" are seasonally relevant and commercially important.</div>
+            </div>
+          </div>
+          <div class="issue" style="--c:var(--red)">
+            <span class="issue-badge" style="--c:var(--red)">Issue</span>
+            <div class="issue-content">
+              <div class="issue-title">No Medical References / Citations</div>
+              <div class="issue-detail">Health articles must cite NHS, NICE guidelines, peer-reviewed research. Without citations, YMYL content fails Google's quality rater guidelines.</div>
+              <div class="issue-fix">→ Add: "Sources" section at end of each article linking to NHS, NICE, BNF, or PubMed.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 6. LOCAL SEO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(34,197,94,0.1)">📍</div>
+      <div>
+        <div class="section-title">6. Local SEO</div>
+        <div class="section-num">Google Business Profile · NAP Consistency · Local Keywords · Citations</div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:12px">
+      <div class="card" style="--c:var(--green)">
+        <div class="card-title">NAP Information</div>
+        <div class="card-value" style="font-size:14px;color:var(--green)">✅ Consistent</div>
+        <div class="card-desc">Name: NewGen Pharmacy<br>Address: 245 High Street, Stratford, E15 2LS<br>Phone: 020 4599 5647<br>Consistent across header, footer, and contact page.</div>
+      </div>
+      <div class="card" style="--c:var(--yellow)">
+        <div class="card-title">Google Business Profile</div>
+        <div class="card-value" style="font-size:14px;color:var(--yellow)">⚠️ Unverified Status</div>
+        <div class="card-desc">GBP exists (pharmacy registered at Stratford address) but verification and optimisation status unknown. Must have verified, fully-populated GBP for local pack.</div>
+      </div>
+    </div>
+
+    <div class="issue-list">
+      <div class="issue" style="--c:var(--red)">
+        <span class="issue-badge" style="--c:var(--red)">Missing</span>
+        <div class="issue-content">
+          <div class="issue-title">No Location-Specific Landing Pages</div>
+          <div class="issue-detail">Pharmacy serves all of UK but no borough/city landing pages. Competitors rank for "pharmacy Stratford E15", "pharmacy Newham", "prescription delivery East London".</div>
+          <div class="issue-fix">→ Create: Local service pages for Stratford, Newham, East London, West Ham, etc.</div>
+        </div>
+      </div>
+      <div class="issue" style="--c:var(--red)">
+        <span class="issue-badge" style="--c:var(--red)">Missing</span>
+        <div class="issue-content">
+          <div class="issue-title">No Embedded Google Map</div>
+          <div class="issue-detail">Contact page or footer should embed Google Maps iframe for physical location. This is a strong local SEO and trust signal.</div>
+          <div class="issue-fix">→ Embed Google Map on Contact Us page and optionally in footer.</div>
+        </div>
+      </div>
+      <div class="issue" style="--c:var(--orange)">
+        <span class="issue-badge" style="--c:var(--orange)">Gap</span>
+        <div class="issue-content">
+          <div class="issue-title">geo.region = "United Kingdom (UK)" — Too Generic</div>
+          <div class="issue-detail">geo.region meta tag is set to "United Kingdom (UK)" not "GB-ENG" or "GB-LND". geo.placename = "London" which is good.</div>
+          <div class="issue-fix">→ Fix: Use geo.region="GB-LND" for London specifically. Add geo.position with lat/lon.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 7. SITE ARCHITECTURE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(124,58,237,0.15)">🗺️</div>
+      <div>
+        <div class="section-title">7. Site Architecture & Navigation</div>
+        <div class="section-num">Menu Structure · Internal Linking · Crawl Depth · User Journey</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card" style="--c:var(--green)">
+        <div class="card-title">✅ Navigation Strengths</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:6px;line-height:1.8">
+          ✅ Clear top navigation with Home, About, NHS, Private Services, Blog, Contact<br>
+          ✅ Mega-menu for Private Services with 14 sub-pages<br>
+          ✅ Sticky CTA: "ORDER PRESCRIPTION" and "EPS NOMINATION" buttons<br>
+          ✅ Footer contains full About, Services, Licensing, Socials sections<br>
+          ✅ Multiple CTAs throughout page for different user intents<br>
+          ✅ Sign In / Register links in header
+        </div>
+      </div>
+      <div class="card" style="--c:var(--red)">
+        <div class="card-title">❌ Navigation Issues</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:6px;line-height:1.8">
+          ❌ "Private Services" mega-menu is a &lt;#&gt; anchor link (no page) — bad for crawlers<br>
+          ❌ Duplicate menu items: weight loss appears 3+ times in navigation<br>
+          ❌ No breadcrumbs on service pages for crawl efficiency<br>
+          ❌ Two separate booking URLs (one.newgenpharmacy.co.uk vs newgenpharmacy.co.uk) — confuses UX<br>
+          ❌ app.newgenpharmacy.co.uk — external subdomain not clearly labeled<br>
+          ❌ No search bar — users can't find specific medications easily
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:12px">
+      <div class="card-title">Internal Link Audit — Homepage</div>
+      <div class="table-responsive">
+        <table class="data-table" style="margin-top:8px;">
+          <thead><tr><th>Link Target</th><th>Anchor Text</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>/weight-loss/</td><td>"Check your eligibility" (×3)</td><td><span class="pill pill-yellow">Over-repeated</span></td></tr>
+            <tr><td>/prescription-order/</td><td>"Order your prescription now" / "Order Prescription"</td><td><span class="pill pill-green">Good</span></td></tr>
+            <tr><td>/eps-nomination/</td><td>"EPS Nomination"</td><td><span class="pill pill-green">Good</span></td></tr>
+            <tr><td>/about-newgen-pharmacy/</td><td>"About Us"</td><td><span class="pill pill-green">Good</span></td></tr>
+            <tr><td>/blog/</td><td>"Read More" / "All Blogs"</td><td><span class="pill pill-yellow">Weak anchor</span></td></tr>
+            <tr><td>/book-a-consultation/</td><td>"Book now"</td><td><span class="pill pill-green">Good</span></td></tr>
+            <tr><td>one.newgenpharmacy.co.uk</td><td>"Book your free consultation"</td><td><span class="pill pill-red">External subdomain</span></td></tr>
+            <tr><td>bnf.nice.org.uk</td><td>"Read More" (NHS Medicines)</td><td><span class="pill pill-yellow">Generic anchor text</span></td></tr>
+            <tr><td>campaignresources.phe.gov.uk</td><td>"Read More"</td><td><span class="pill pill-yellow">Should open in new tab</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 8. SOCIAL & BRAND -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(0,212,255,0.1)">📱</div>
+      <div>
+        <div class="section-title">8. Social Signals & Brand Presence</div>
+        <div class="section-num">Social Profiles · App Store · Ambassador Programme · Newsletter</div>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card" style="--c:var(--green)">
+        <div class="card-title">Social Platforms</div>
+        <div class="card-value" style="font-size:14px;--c:var(--green)">6 Channels</div>
+        <div class="card-desc">Facebook, Instagram, X/Twitter, TikTok, LinkedIn, YouTube. Full social coverage — excellent for brand awareness and E-E-A-T signals.</div>
+      </div>
+      <div class="card" style="--c:var(--green)">
+        <div class="card-title">Mobile App</div>
+        <div class="card-value" style="font-size:14px;--c:var(--green)">✅ Both Stores</div>
+        <div class="card-desc">Available on Google Play & Apple App Store. Strong brand signal. App links in footer. IDs: newgenpharmacy.app / id6758158386.</div>
+      </div>
+      <div class="card" style="--c:var(--green)">
+        <div class="card-title">Ambassador Programme</div>
+        <div class="card-value" style="font-size:14px;--c:var(--green)">✅ Active</div>
+        <div class="card-desc">Ambassador programme with signup page. Excellent UGC and backlink generation strategy. Unique differentiator vs competitors.</div>
+      </div>
+      <div class="card" style="--c:var(--yellow)">
+        <div class="card-title">Newsletter</div>
+        <div class="card-value" style="font-size:14px;--c:var(--yellow)">⚠️ Basic</div>
+        <div class="card-desc">Simple name+email form with no visible CRM integration shown. Should connect to Klaviyo/Mailchimp with double opt-in for GDPR compliance.</div>
+      </div>
+      <div class="card" style="--c:var(--red)">
+        <div class="card-title">"As Seen In" Claims</div>
+        <div class="card-value" style="font-size:14px;--c:var(--red)">❌ No Evidence</div>
+        <div class="card-desc">BBC, The Independent, Guardian, Sky News, Forbes, Bloomberg logos shown. No links to actual articles. This is misleading without verification — risks credibility.</div>
+      </div>
+      <div class="card" style="--c:var(--yellow)">
+        <div class="card-title">Review Integration</div>
+        <div class="card-value" style="font-size:14px;--c:var(--yellow)">⚠️ Screenshots Only</div>
+        <div class="card-desc">TrustPilot and Google reviews shown as screenshot images — not as live widgets. Screenshots can be fabricated; live widgets are trusted by Google and users.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 9. COMPLIANCE & LEGAL -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(239,68,68,0.1)">⚖️</div>
+      <div>
+        <div class="section-title">9. Regulatory Compliance & Legal SEO</div>
+        <div class="section-num">GDPR · GPhC · CQC · MHRA · ICO · Cookie Consent</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card" style="--c:var(--green)">
+        <div class="card-title">✅ Compliance Positives</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.9;margin-top:6px">
+          ✅ GPhC Reg No. 9012028 displayed + link to register<br>
+          ✅ GPhC Inspection Report publicly linked<br>
+          ✅ GMC registration for Dr. Naeem Aslam (6121335)<br>
+          ✅ Privacy Policy page exists (/privacy-policy/)<br>
+          ✅ Terms & Conditions page (/terms-and-conditions/)<br>
+          ✅ Delivery & Returns policy (/delivery-and-returns/)<br>
+          ✅ NHS Exemptions page (/nhs-exemptions-and-prescription-charges/)<br>
+          ✅ Company No. 07980522 + VAT No. 445197182 in footer<br>
+          ✅ Registered office address clearly shown
+        </div>
+      </div>
+      <div class="card" style="--c:var(--red)">
+        <div class="card-title">❌ Compliance Gaps</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.9;margin-top:6px">
+          ❌ No visible ICO registration number (required for UK data processing)<br>
+          ❌ No cookie consent banner detected in page source<br>
+          ❌ No "Safe to Buy" MHRA/NHS approved medication badge<br>
+          ❌ No CQC registration details (if applicable for clinic services)<br>
+          ❌ Patient survey PDF linked — but no GDPR notice for survey data<br>
+          ❌ Weight loss consultation forms — no visible data protection notice inline<br>
+          ❌ "As Seen In" logos without proof — potential ASA/CAP code issue<br>
+          ❌ No visible Accessibility Statement (legally required for some health services)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 10. PRIORITY ACTION PLAN -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(239,68,68,0.15)">🎯</div>
+      <div>
+        <div class="section-title">10. Priority Action Plan</div>
+        <div class="section-num">Immediate · Short-Term · Long-Term Roadmap</div>
+      </div>
+    </div>
+
+    <div class="matrix">
+      <div class="matrix-cell" style="--c:var(--red)">
+        <div class="matrix-label" style="--c:var(--red)">🚨 Fix Immediately (Week 1–2)</div>
+        <div class="matrix-item" style="--c:var(--red)">Fix H1 — change to keyword-rich primary heading like "GPhC-Registered Online Pharmacy in London"</div>
+        <div class="matrix-item" style="--c:var(--red)">Add LocalBusiness + Pharmacy + MedicalOrganization JSON-LD schema</div>
+        <div class="matrix-item" style="--c:var(--red)">Add AggregateRating schema + embed live TrustPilot widget</div>
+        <div class="matrix-item" style="--c:var(--red)">Add cookie consent banner (GDPR-compliant, e.g. CookieYes or Complianz)</div>
+        <div class="matrix-item" style="--c:var(--red)">Verify/link actual "As Seen In" article URLs or remove logos</div>
+        <div class="matrix-item" style="--c:var(--red)">Consolidate duplicate Facebook Pixels to one ID</div>
+        <div class="matrix-item" style="--c:var(--red)">Add author bylines to all blog posts with doctor/pharmacist credentials</div>
+      </div>
+      <div class="matrix-cell" style="--c:var(--orange)">
+        <div class="matrix-label" style="--c:var(--orange)">⚡ High Priority (Month 1)</div>
+        <div class="matrix-item" style="--c:var(--orange)">Enable Cloudflare CDN + configure caching rules</div>
+        <div class="matrix-item" style="--c:var(--orange)">Optimise all images: convert to WebP, add lazy loading, explicit dimensions</div>
+        <div class="matrix-item" style="--c:var(--orange)">Enable Elementor "Improved CSS Loading" and performance optimisation settings</div>
+        <div class="matrix-item" style="--c:var(--orange)">Fix OG image to 1200×630px for proper social previews</div>
+        <div class="matrix-item" style="--c:var(--orange)">Create local SEO pages for Stratford, Newham, East London</div>
+        <div class="matrix-item" style="--c:var(--orange)">Submit sitemap to Google Search Console and Bing Webmaster Tools</div>
+        <div class="matrix-item" style="--c:var(--orange)">Add BreadcrumbList schema across all service pages</div>
+      </div>
+      <div class="matrix-cell" style="--c:var(--yellow)">
+        <div class="matrix-label" style="--c:var(--yellow)">📈 Growth (Month 2–3)</div>
+        <div class="matrix-item" style="--c:var(--yellow)">Add FAQPage schema to all treatment consultation pages</div>
+        <div class="matrix-item" style="--c:var(--yellow)">Self-host Google Fonts and add preload headers for performance</div>
+        <div class="matrix-item" style="--c:var(--yellow)">Trim long URL slugs ("/erectile-dysfunction/" etc.)</div>
+        <div class="matrix-item" style="--c:var(--yellow)">Add medical references/citations to all blog articles</div>
+        <div class="matrix-item" style="--c:var(--yellow)">Build dedicated team pages for Dr. Naeem and Nadia with Person schema</div>
+        <div class="matrix-item" style="--c:var(--yellow)">Add Google Map embed to contact page</div>
+        <div class="matrix-item" style="--c:var(--yellow)">Add site search functionality for medication lookup</div>
+      </div>
+      <div class="matrix-cell" style="--c:var(--green)">
+        <div class="matrix-label" style="--c:var(--green)">🚀 Long-Term (Month 3–6)</div>
+        <div class="matrix-item" style="--c:var(--green)">Build backlink profile: pharmacy directories, NHS partners, health publishers</div>
+        <div class="matrix-item" style="--c:var(--green)">Launch Ambassador-generated content strategy for UGC SEO boost</div>
+        <div class="matrix-item" style="--c:var(--green)">Create comprehensive weight loss hub with pillar content + cluster pages</div>
+        <div class="matrix-item" style="--c:var(--green)">Add accessibility statement + WCAG 2.1 audit</div>
+        <div class="matrix-item" style="--c:var(--green)">ICO registration number — add to privacy policy</div>
+        <div class="matrix-item" style="--c:var(--green)">Investigate headless/static frontend for performance gains over Elementor</div>
+        <div class="matrix-item" style="--c:var(--green)">Monitor Core Web Vitals monthly via Search Console + PageSpeed</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SUMMARY TABLE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(0,212,255,0.1)">📊</div>
+      <div>
+        <div class="section-title">Full Audit Summary — A to Z Checklist</div>
+        <div class="section-num">All 40+ Audit Points</div>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="data-table" style="background:var(--card);border-radius:10px;overflow:hidden;border:1px solid var(--border)">
+        <thead><tr><th>#</th><th>Audit Item</th><th>Status</th><th>Priority</th></tr></thead>
+        <tbody>
+          <tr><td style="color:var(--muted)">01</td><td>Page Title Tag (length, keywords)</td><td><span class="pill pill-yellow">Partial</span></td><td><span class="pill pill-orange">High</span></td></tr>
+          <tr><td style="color:var(--muted)">02</td><td>Meta Description</td><td><span class="pill pill-green">✅ Good</span></td><td>—</td></tr>
+          <tr><td style="color:var(--muted)">03</td><td>H1 Tag — Primary Keyword</td><td><span class="pill pill-red">❌ Wrong</span></td><td><span class="pill pill-red">Critical</span></td></tr>
+          <tr><td style="color:var(--muted)">04</td><td>Heading Hierarchy (H1–H6)</td><td><span class="pill pill-yellow">Broken</span></td><td><span class="pill pill-orange">High</span></td></tr>
+          <tr><td style="color:var(--muted)">05</td><td>Canonical Tag</td><td><span class="pill pill-green">✅ Good</span></td><td>—</td></tr>
+          <tr><td style="color:var(--muted)">06</td><td>Robots Meta Tag</td><td><span class="pill pill-green">✅ Good</span></td><td>—</td></tr>
+          <tr><td style="color:var(--muted)">07</td><td>Open Graph Tags (og:*)</td><td><span class="pill pill-green">✅ Good</span></td><td>—</td></tr>
+          <tr><td style="color:var(--muted)">08</td><td>OG Image Size (1200×630)</td><td><span class="pill pill-red">❌ Wrong</span></td><td><span class="pill pill-orange">High</span></td></tr>
+          <tr><td style="color:var(--muted)">09</td><td>Twitter Card Meta</td><td><span class="pill pill-green">✅ Good</span></td><td>—</td></tr>
+          <tr><td style="color:var(--muted)">10</td><td>HTTPS / SSL Certificate</td><td><span class="pill pill-green">✅ Secure</span></td><td>—</td></tr>
+          <tr><td style="color:var(--muted)">11</td><td>Mobile Viewport Meta</td><td><span class="pill pill-green">✅ Good</span></td><td>—</td></tr>
+          <tr><td style="color:var(--muted)">12</td><td>LCP (Largest Contentful Paint)</td><td><span class="pill pill-red">~4.8s Poor</span></td><td><span class="pill pill-red">Critical</span></td></tr>
+          <tr><td style="color:var(--muted)">13</td><td>INP (Interaction to Next Paint)</td><td><span class="pill pill-yellow">~220ms</span></td><td><span class="pill pill-orange">High</span></td></tr>
+          <tr><td style="color:var(--muted)">14</td><td>CLS (Cumulative Layout Shift)</td><td><span class="pill pill-yellow">~0.15</span></td><td><span class="pill pill-orange">High</span></td></tr>
+          <tr><td style="color:var(--muted)">15</td><td>FCP (First Contentful Paint)</td><td><span class="pill pill-red">~2.8s Poor</span></td><td><span class="pill pill-red">Critical</span></td></tr>
+          <tr><td style="color:var(--muted)">16</td><td>TTFB (Time to First Byte)</td><td><span class="pill pill-yellow">~800ms</span></td><td><span class="pill pill-orange">High</span></td></tr>
+          <tr><td style="color:var(--muted)">17</td><td>Image Optimisation (WebP/AVIF)</td><td><span class="pill pill-yellow">Partial</span></td><td><span class="pill pill-orange">High</span></td></tr>
+          <tr><td style="color:var(--muted)">18</td><td>Lazy Loading on Images</td><td><span class="pill pill-yellow">Partial</span></td><td><span class="pill pill-orange">High</span></td></tr>
+          <tr><td style="color:var(--muted)">19</td><td>CDN Implementation</td><td><span class="pill pill-red">❌ None</span></td><td><span class="pill pill-red">Critical</span></td></tr>
+          <tr><td style="color:var(--muted)">20</td><td>Duplicate 3rd-party Scripts</td><td><span class="pill pill-red">2× FB Pixel</span></td><td><span class="pill pill-red">Critical</span></td></tr>
+          <tr><td style="color:var(--muted)">21</td><td>LocalBusiness Schema</td><td><span class="pill pill-red">❌ Missing</span></td><td><span class="pill pill-red">Critical</span></td></tr>
+          <tr><td style="color:var(--muted)">22</td><td>MedicalOrganization Schema</td><td><span class="pill pill-red">❌ Missing</span></td><td><span class="pill pill-red">Critical</span></td></tr>
+          <tr><td style="color:var(--muted)">23</td><td>AggregateRating Schema</td><td><span class="pill pill-red">❌ Missing</span></td><td><span class="pill pill-red">Critical</span></td></tr>
+          <tr><td style="color:var(--muted)">24</td><td>FAQPage Schema</td><td><span class="pill pill-red">❌ Missing</span></td><td><span class="pill pill-orange">High</span></td></tr>
+          <tr><td style="color:var(--muted)">25</td><td>Person/Doctor Schema</td><td><span class="pill pill-red">❌ Missing</span></td><td><span class="pill pill-orange">High</span></td></tr>
+          <tr><td style="color:var(--muted)">26</td><td>BreadcrumbList Schema</td><td><span class="pill pill-red">❌ Missing</span></td><td><span class="pill pill-orange">High</span></td></tr>
+          <tr><td style="color:var(--muted)">27</td><td>XML Sitemap submitted</td><td><span class="pill pill-yellow">Unknown</span></td><td><span class="pill pill-orange">High</span></td></tr>
+          <tr><td style="color:var(--muted)">28</td><td>Robots.txt configured</td><td><span class="pill pill-yellow">Unknown</span></td><td><span class="pill pill-orange">High</span></td></tr>
+          <tr><td style="color:var(--muted)">29</td><td>URL Structure (clean slugs)</td><td><span class="pill pill-green">✅ Good</span></td><td>—</td></tr>
+          <tr><td style="color:var(--muted)">30</td><td>URL Length</td><td><span class="pill pill-yellow">Some Long</span></td><td><span class="pill pill-yellow">Medium</span></td></tr>
+          <tr><td style="color:var(--muted)">31</td><td>Internal Linking Strategy</td><td><span class="pill pill-yellow">Partial</span></td><td><span class="pill pill-orange">High</span></td></tr>
+          <tr><td style="color:var(--muted)">32</td><td>NAP Consistency</td><td><span class="pill pill-green">✅ Good</span></td><td>—</td></tr>
+          <tr><td style="color:var(--muted)">33</td><td>Google Business Profile</td><td><span class="pill pill-yellow">Unknown</span></td><td><span class="pill pill-orange">High</span></td></tr>
+          <tr><td style="color:var(--muted)">34</td><td>Local Landing Pages</td><td><span class="pill pill-red">❌ Missing</span></td><td><span class="pill pill-orange">High</span></td></tr>
+          <tr><td style="color:var(--muted)">35</td><td>GPhC Registration Displayed</td><td><span class="pill pill-green">✅ Good</span></td><td>—</td></tr>
+          <tr><td style="color:var(--muted)">36</td><td>Doctor/Medical Team Visible</td><td><span class="pill pill-green">✅ Good</span></td><td>—</td></tr>
+          <tr><td style="color:var(--muted)">37</td><td>Blog Author Attribution</td><td><span class="pill pill-red">❌ Missing</span></td><td><span class="pill pill-red">Critical</span></td></tr>
+          <tr><td style="color:var(--muted)">38</td><td>Medical Content Citations</td><td><span class="pill pill-red">❌ Missing</span></td><td><span class="pill pill-red">Critical</span></td></tr>
+          <tr><td style="color:var(--muted)">39</td><td>Cookie Consent Banner</td><td><span class="pill pill-red">❌ Missing</span></td><td><span class="pill pill-red">Critical</span></td></tr>
+          <tr><td style="color:var(--muted)">40</td><td>ICO Registration Number</td><td><span class="pill pill-red">❌ Missing</span></td><td><span class="pill pill-orange">High</span></td></tr>
+          <tr><td style="color:var(--muted)">41</td><td>Social Media Profiles (6)</td><td><span class="pill pill-green">✅ Excellent</span></td><td>—</td></tr>
+          <tr><td style="color:var(--muted)">42</td><td>Mobile App (iOS + Android)</td><td><span class="pill pill-green">✅ Excellent</span></td><td>—</td></tr>
+          <tr><td style="color:var(--muted)">43</td><td>Live Review Widgets</td><td><span class="pill pill-red">❌ Screenshots</span></td><td><span class="pill pill-orange">High</span></td></tr>
+          <tr><td style="color:var(--muted)">44</td><td>Google Fonts Self-Hosted</td><td><span class="pill pill-yellow">External</span></td><td><span class="pill pill-yellow">Medium</span></td></tr>
+          <tr><td style="color:var(--muted)">45</td><td>Payment Methods Displayed</td><td><span class="pill pill-green">✅ Good</span></td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div>
+    <div class="footer-brand">NewGen Pharmacy — SEO Audit Report</div>
+    <div class="footer-meta" style="margin-top:4px">newgenpharmacy.co.uk · GPhC: 9012028 · Stratford, London E15 2LS</div>
+  </div>
+  <div class="footer-meta" style="text-align:right">
+    Generated: 09 May 2026<br>
+    Analysis by Digizaro team<br>
+    Scores are estimated based on page source analysis
+  </div>
+</div>
+
+</body>
+</html>
